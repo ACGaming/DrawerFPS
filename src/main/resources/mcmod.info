@@ -1,0 +1,19 @@
+[
+  {
+    "modid": "drawerfps",
+    "name": "DrawerFPS",
+    "description": "Improve FPS by reducing drawer render range",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://github.com/ACGaming/DrawerFPS/tree/v1.12",
+    "updateUrl": "",
+    "authorList": [
+      "someaddons",
+      "ACGaming"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

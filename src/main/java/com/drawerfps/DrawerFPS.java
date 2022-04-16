@@ -1,50 +1,21 @@
 package com.drawerfps;
 
-import com.drawerfps.config.Configuration;
-import com.drawerfps.event.ClientEventHandler;
-import com.drawerfps.event.EventHandler;
-import com.drawerfps.event.ModEventHandler;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ExtensionPoint;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.network.FMLNetworkConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
-import static com.drawerfps.DrawerFPS.MODID;
-
-// The value here should match an entry in the META-INF/mods.toml file
-@Mod(MODID)
+@Mod(modid = DrawerFPS.MODID, name = DrawerFPS.NAME, version = DrawerFPS.VERSION, acceptedMinecraftVersions = "[1.12.2]", dependencies = "required-after:mixinbooter", clientSideOnly = true)
 public class DrawerFPS
 {
     public static final String MODID = "drawerfps";
+    public static final String NAME = "DrawerFPS";
+    public static final String VERSION = "1.12.2-1.1.0";
+    public static final Logger LOGGER = LogManager.getLogger();
 
-    public static final Logger        LOGGER = LogManager.getLogger();
-    public static       Configuration config = new Configuration();
-
-    public DrawerFPS()
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent event)
     {
-        ModLoadingContext.get()
-          .registerExtensionPoint(ExtensionPoint.DISPLAYTEST, () -> org.apache.commons.lang3.tuple.Pair.of(() -> FMLNetworkConstants.IGNORESERVERONLY, (a, b) -> true));
-
-        Mod.EventBusSubscriber.Bus.MOD.bus().get().register(ModEventHandler.class);
-        Mod.EventBusSubscriber.Bus.FORGE.bus().get().register(EventHandler.class);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
-    }
-
-    @SubscribeEvent
-    public void clientSetup(FMLClientSetupEvent event)
-    {
-        Mod.EventBusSubscriber.Bus.FORGE.bus().get().register(ClientEventHandler.class);
-    }
-
-    private void setup(final FMLCommonSetupEvent event)
-    {
-        LOGGER.info("Drawer FPS initialized");
+        LOGGER.info("DrawerFPS initialized");
     }
 }
