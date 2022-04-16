@@ -10,7 +10,7 @@ public class DrawerFPS
 {
     public static final String MODID = "drawerfps";
     public static final String NAME = "DrawerFPS";
-    public static final String VERSION = "1.12.2-1.1.0";
+    public static final String VERSION = "1.12.2-1.0.0";
     public static final Logger LOGGER = LogManager.getLogger();
 
     @Mod.EventHandler
