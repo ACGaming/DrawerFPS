@@ -5,7 +5,12 @@ import org.apache.logging.log4j.Logger;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
-@Mod(modid = DrawerFPS.MODID, name = DrawerFPS.NAME, version = DrawerFPS.VERSION, acceptedMinecraftVersions = "[1.12.2]", dependencies = "required-after:mixinbooter", clientSideOnly = true)
+@Mod(modid = DrawerFPS.MODID,
+    name = DrawerFPS.NAME,
+    version = DrawerFPS.VERSION,
+    acceptedMinecraftVersions = "[1.12.2]",
+    dependencies = "required-after:mixinbooter;required-after:chameleon;required-after:storagedrawers",
+    clientSideOnly = true)
 public class DrawerFPS
 {
     public static final String MODID = "drawerfps";
